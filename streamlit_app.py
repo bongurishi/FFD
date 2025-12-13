@@ -200,18 +200,19 @@ def background_slideshow_css():
     return """
    <style>
     .stApp {
-        background: #ffffff;
+        background: #0f9d58;
         background-size: cover;
         background-position: center;
         background-attachment: fixed;
     }
     .feature-card {
-        background: rgba(255, 255, 255, 0.95);
+        background: rgba(15, 157, 88, 0.95);
+        color: #ffffff;
         padding: 20px;
         border-radius: 15px;
         margin: 10px 0;
-        border: 2px solid rgba(0, 0, 0, 0.1);
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        border: 2px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
     }
     .metric-card {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -618,3 +619,4 @@ st.markdown(
     unsafe_allow_html=True
 
 )
+
