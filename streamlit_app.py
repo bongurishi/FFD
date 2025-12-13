@@ -12,6 +12,8 @@ import time
 import requests
 import io
 import base64
+import os
+import gdown
 
 # ------------------ Constants ------------------ #
 IMG_HEIGHT = 227
@@ -34,6 +36,7 @@ if 'batch_results' not in st.session_state:
     st.session_state.batch_results = []
 
 # Load model once
+# ------------------ Load model once ------------------ #
 @st.cache_resource
 def load_alexnet_model():
     MODEL_PATH = "AlexNet_final.keras"
@@ -52,10 +55,15 @@ def load_alexnet_model():
         return model
     except Exception as e:
         st.error(f"Error loading model: {e}")
+        # fallback dummy model
         class MockModel:
             def predict(self, x):
                 return np.random.uniform(0.3, 0.98, (x.shape[0], 2))
         return MockModel()
+
+# ---- Call the function ---- #
+model = load_alexnet_model()
+
 
 # Preprocess image - FIXED for 227x227
 def preprocess_image(image):
@@ -316,6 +324,7 @@ with tabs[0]:
 # ---------- Tab 2: Enhanced Detection ---------- #
 with tabs[1]:
     st.markdown(background_slideshow_css(), unsafe_allow_html=True)
+    prediction = model.predict(img_array, verbose=0)
 
     if "lang" not in st.session_state:
         st.warning("⚠ Please select a language in Welcome tab first.")
@@ -417,6 +426,7 @@ with tabs[1]:
 # ---------- Tab 3: Batch Processing ---------- #
 with tabs[2]:
     st.markdown(background_slideshow_css(), unsafe_allow_html=True)
+    prediction = model.predict(img_array, verbose=0)
 
     if "lang" not in st.session_state:
         st.warning("⚠ Please select a language in Welcome tab first.")
@@ -606,4 +616,5 @@ st.markdown(
     "Built with  using Streamlit & TensorFlow"
     "</div>",
     unsafe_allow_html=True
+
 )
