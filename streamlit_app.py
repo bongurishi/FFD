@@ -325,7 +325,6 @@ with tabs[0]:
 # ---------- Tab 2: Enhanced Detection ---------- #
 with tabs[1]:
     st.markdown(background_slideshow_css(), unsafe_allow_html=True)
-    prediction = model.predict(img_array, verbose=0)
 
     if "lang" not in st.session_state:
         st.warning("⚠ Please select a language in Welcome tab first.")
@@ -427,7 +426,6 @@ with tabs[1]:
 # ---------- Tab 3: Batch Processing ---------- #
 with tabs[2]:
     st.markdown(background_slideshow_css(), unsafe_allow_html=True)
-    prediction = model.predict(img_array, verbose=0)
 
     if "lang" not in st.session_state:
         st.warning("⚠ Please select a language in Welcome tab first.")
@@ -619,4 +617,5 @@ st.markdown(
     unsafe_allow_html=True
 
 )
+
 
