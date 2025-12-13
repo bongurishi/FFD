@@ -200,18 +200,18 @@ def background_slideshow_css():
     return """
    <style>
     .stApp {
-        background: #0f9d58;
+        background: #ff69b4;  /* Hot Pink background */
         background-size: cover;
         background-position: center;
         background-attachment: fixed;
     }
     .feature-card {
-        background: rgba(15, 157, 88, 0.95);
+        background: rgba(255, 105, 180, 0.95);  /* Semi-transparent Hot Pink */
         color: #ffffff;
         padding: 20px;
         border-radius: 15px;
         margin: 10px 0;
-        border: 2px solid rgba(255, 255, 255, 0.08);
+        border: 2px solid rgba(255, 182, 193, 0.08);  /* Light Pink border */
         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
     }
     .metric-card {
@@ -617,5 +617,6 @@ st.markdown(
     unsafe_allow_html=True
 
 )
+
 
 
