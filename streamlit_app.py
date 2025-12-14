@@ -227,7 +227,7 @@ def background_slideshow_css():
 # ------------------ Multi-language text ------------------ #
 TEXTS = {
     "en": {
-        "welcome": " Welcome to FFD – Food Freshness Detection ",
+        "welcome": " Welcome to B Food Freshness Detector – Food Freshness Detection ",
         "choose_lang": "Select your preferred language:",
         "detection": " Food Freshness Detection",
         "upload": " Upload Image",
@@ -617,6 +617,7 @@ st.markdown(
     unsafe_allow_html=True
 
 )
+
 
 
 
