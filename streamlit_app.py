@@ -41,7 +41,7 @@ if 'batch_results' not in st.session_state:
 def load_alexnet_model():
     MODEL_PATH = "AlexNet_final.keras"
     GDRIVE_ID = "10FwrUt27Z3VWMtMw4rfhql6zX8LCeIfF"
-    GDRIVE_URL = f"https://drive.google.com/uc?id={GDRIVE_ID}"
+    GDRIVE_URL = f"https://drive.google.com/file/d/1Wq9yuL36YU1WBbqk_7_O6il9kbbdaXY0/view?usp=sharing{GDRIVE_ID}"
 
     # Download model if it doesn't exist
     if not os.path.exists(MODEL_PATH):
@@ -617,6 +617,7 @@ st.markdown(
     unsafe_allow_html=True
 
 )
+
 
 
 
