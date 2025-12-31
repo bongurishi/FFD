@@ -37,32 +37,37 @@ if 'batch_results' not in st.session_state:
 
 # Load model once
 # ------------------ Load model once ------------------ #
+import os
+import gdown
+import streamlit as st
+import numpy as np
+from tensorflow.keras.models import load_model
+
 @st.cache_resource
 def load_alexnet_model():
     MODEL_PATH = "alexnet_model.pth"
-    GDRIVE_ID = "1Wq9yuL36YU1WBbqk_7_O6il9kbbdaXY0"
+    GDRIVE_ID = "10FwrUt27Z3VWMtMw4rfhql6zX8LCeIfF"
 
-    # Correct Google Drive direct URL
     GDRIVE_URL = f"https://drive.google.com/uc?id={GDRIVE_ID}"
 
     if not os.path.exists(MODEL_PATH):
-        st.info("Downloading AlexNet model from Google Drive (~683 MB). Please wait...")
+        st.info("Downloading AlexNet model from Google Drive...")
         gdown.download(GDRIVE_URL, MODEL_PATH, quiet=False, fuzzy=True)
 
     try:
         model = load_model(MODEL_PATH)
-        st.success("✅ AlexNet Model Loaded Successfully!")
+        st.success("✅ AlexNet model loaded successfully")
         return model
 
     except Exception as e:
-        st.error(f"❌ Error loading model: {e}")
+        st.error(f"❌ Model load failed: {e}")
 
-        # fallback dummy model (prevents app crash)
         class MockModel:
             def predict(self, x):
                 return np.random.uniform(0.3, 0.98, (x.shape[0], 2))
 
         return MockModel()
+
 # ---- Call the function ---- #
 model = load_alexnet_model()
 
@@ -619,6 +624,7 @@ st.markdown(
     unsafe_allow_html=True
 
 )
+
 
 
 
