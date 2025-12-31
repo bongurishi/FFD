@@ -45,7 +45,7 @@ from tensorflow.keras.models import load_model
 
 @st.cache_resource
 def load_alexnet_model():
-    MODEL_PATH = "AlexNet_final.keras"
+    MODEL_PATH = "AlexNet_final"
     GDRIVE_ID = "1Wq9yuL36YU1WBbqk_7_O6il9kbbdaXY0"
 
     GDRIVE_URL = f"https://drive.google.com/uc?id={GDRIVE_ID}"
@@ -55,7 +55,7 @@ def load_alexnet_model():
         gdown.download(GDRIVE_URL, MODEL_PATH, quiet=False, fuzzy=True)
 
     try:
-       model = load_model("AlexNet_final.keras")
+       model = load_model("AlexNet_final")
         st.success("✅ AlexNet model loaded successfully")
         return model
 
@@ -69,7 +69,7 @@ def load_alexnet_model():
         return MockModel()
 
 # ---- Call the function ---- #
-model = load_model("AlexNet_final.keras")
+model = load_model("AlexNet_final")
 
 
 # Preprocess image - FIXED for 227x227
@@ -624,6 +624,7 @@ st.markdown(
     unsafe_allow_html=True
 
 )
+
 
 
 
