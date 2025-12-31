@@ -46,7 +46,6 @@ from tensorflow.keras.models import load_model
 @st.cache_resource
 def load_alexnet_model():
     MODEL_PATH = "alexnet_model.pth"
-    GDRIVE_ID = "10FwrUt27Z3VWMtMw4rfhql6zX8LCeIfF"
 
     GDRIVE_URL = "https://drive.google.com/file/d/1Wq9yuL36YU1WBbqk_7_O6il9kbbdaXY0/view?usp=sharing{GDRIVE_ID}"
 
@@ -624,6 +623,7 @@ st.markdown(
     unsafe_allow_html=True
 
 )
+
 
 
 
