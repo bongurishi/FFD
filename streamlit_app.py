@@ -55,7 +55,7 @@ def load_alexnet_model():
         gdown.download(GDRIVE_URL, MODEL_PATH, quiet=False, fuzzy=True)
 
     try:
-        model = load_model(MODEL_PATH)
+       model = load_model("AlexNet_final.keras")
         st.success("✅ AlexNet model loaded successfully")
         return model
 
@@ -69,7 +69,7 @@ def load_alexnet_model():
         return MockModel()
 
 # ---- Call the function ---- #
-model = load_alexnet_model()
+model = load_model("AlexNet_final.keras")
 
 
 # Preprocess image - FIXED for 227x227
@@ -624,6 +624,7 @@ st.markdown(
     unsafe_allow_html=True
 
 )
+
 
 
 
